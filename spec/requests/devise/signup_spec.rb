@@ -18,8 +18,8 @@ RSpec.describe 'POST /signup', type: :request do
       expect(response.status).to eq 200
     end
 
-    xit 'returns a new user' do
-      expect(response.body).to match_schema('user')
+    it 'returns a new user' do
+      expect(response.body).to match_response_schema('user')
     end
   end
 
@@ -29,12 +29,16 @@ RSpec.describe 'POST /signup', type: :request do
       post url, params: params
     end
 
-    xit 'returns bad request status' do
+    it 'returns bad request status' do
       expect(response.status).to eq 400
     end
 
-    xit 'returns validation errors' do
-      expect(json['errors'].first['title']).to eq('Bad Request')
+    it 'returns validation errors' do
+      parsed_body = JSON.parse(response.body)
+      error_title = parsed_body['errors'].first['title']
+      error_email = parsed_body['errors'].first['detail']['email'].first
+      expect(error_title).to eq('Bad Request')
+      expect(error_email).to eq('has already been taken')
     end
   end
 end
