@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'POST /login', type: :request do
+  # let(:user) { Fabricate(:user) { after_create { |user| user.confirm } } }
   let(:user) { Fabricate(:user) }
   let(:url) { '/login' }
   let(:params) do
@@ -11,9 +12,26 @@ RSpec.describe 'POST /login', type: :request do
         }
     }
   end
+  
+  def decoded_jwt_token_from_response(response)
+    token = response.headers['Authorization'].split(" ")[1]
+    JWT.decode(token, Rails.application.credentials.DEVISE_JWT_SECRET_KEY, "H256")
+  end
+
+  context 'when params are correct but is not confirmed yet' do
+    before do
+      post url, params: params
+    end
+
+    it 'returns 401' do
+      expect(response).to have_http_status(401)
+      expect(response.body).to eq("You have to confirm your email address before continuing.")
+    end
+  end
 
   context 'when params are correct' do
     before do
+      user.confirm
       post url, params: params
     end
 

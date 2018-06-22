@@ -4,4 +4,8 @@ class User < ApplicationRecord
   devise  :database_authenticatable, :registerable, :confirmable, :lockable,
           :recoverable, :rememberable, :trackable, :validatable,
           :jwt_authenticatable, jwt_revocation_strategy: JWTBlacklist
+
+  # def jwt_payload
+  #   { 'groupgeo' => 'API' }
+  # end
 end
