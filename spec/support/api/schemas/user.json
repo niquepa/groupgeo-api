@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "required": [ "id", "email" ],
+  "additionalProperties": false,
+  "properties": {
+    "id":    { "type": "integer" },
+    "email": { "type": "email" },
+    "created_at":  { "type": "date" },
+    "updated_at":  { "type": "date" }
+  }
+}
