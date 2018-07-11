@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'POST /login', type: :request do
   # let(:user) { Fabricate(:user) { after_create { |user| user.confirm } } }
   let(:user) { Fabricate(:user) }
-  let(:url) { '/login' }
+  let(:url) { '/v1/login' }
   let(:params) do
     {
         user: {
@@ -59,7 +59,7 @@ RSpec.describe 'POST /login', type: :request do
 end
 
 RSpec.describe 'DELETE /logout', type: :request do
-  let(:url) { '/logout' }
+  let(:url) { '/v1/logout' }
 
   it 'returns 204, no content' do
     delete url
