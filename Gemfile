@@ -31,14 +31,14 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'rack-cors'
 
 # Authentication thru JWT
-gem 'devise-jwt'
+gem 'devise-jwt', '>= 0.5.6'
 
 group :test do
   gem 'simplecov', require: false
 end
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 3.7.2'
   gem 'json_matchers'
   gem 'fabrication'
   gem 'faker'
