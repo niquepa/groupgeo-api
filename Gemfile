@@ -31,7 +31,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'rack-cors'
 
 # Authentication thru JWT
-gem 'devise-jwt'
+gem 'devise-jwt', '>= 0.5.6'
 
 group :test do
   gem 'simplecov', require: false
