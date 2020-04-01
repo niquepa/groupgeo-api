@@ -34,7 +34,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise-jwt'
 
 group :test do
-  gem 'simplecov', require: false
+  gem 'simplecov', '>= 0.16.1', require: false
 end
 
 group :development, :test do
