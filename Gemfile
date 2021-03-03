@@ -4,10 +4,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 6.0.3', '>= 6.0.3.5'
 # Postgres for the database
 gem 'pg'
-gem 'activerecord-postgis-adapter'
+gem 'activerecord-postgis-adapter', '>= 5.2.1'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -31,14 +31,14 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'rack-cors'
 
 # Authentication thru JWT
-gem 'devise-jwt'
+gem 'devise-jwt', '>= 0.5.6'
 
 group :test do
   gem 'simplecov', require: false
 end
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 3.7.2'
   gem 'json_matchers'
   gem 'fabrication'
   gem 'faker'
