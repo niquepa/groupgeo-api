@@ -39,7 +39,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'json_matchers'
+  gem 'json_matchers', '>= 0.9.0'
   gem 'fabrication'
   gem 'faker'
 end
